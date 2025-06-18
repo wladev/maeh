@@ -24,7 +24,7 @@ services:
       - "3003:9000"  # Port interne exposé si besoin
     volumes:
       - .:/var/www
-    networks:
+networks:
       proxy-tier:
         external: true
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!

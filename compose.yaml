@@ -15,6 +15,19 @@ services:
       start_period: 60s
     volumes:
       - database_data:/var/lib/postgresql/data:rw
+
+  maeh:
+    build: .
+    container_name: maeh-app
+    restart: unless-stopped
+    ports:
+      - "3003:9000"  # Port interne exposé si besoin
+    volumes:
+      - .:/var/www
+
+  networks:
+    proxy-tier:
+      external: true
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###

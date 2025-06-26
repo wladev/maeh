@@ -1,0 +1,48 @@
+server {
+    listen 443 ssl;
+    server_name maeh.wladev.fr;
+
+    root /var/www/public; # Ajuste ici selon ton Dockerfile
+
+    index index.php index.html;
+
+    location / {
+        try_files $uri /index.php$is_args$args;
+    }
+
+    location ^~ /img/ {
+    root /home/wladev/sites/maeh/public;
+    access_log off;
+    expires max;
+}
+
+    location ^~ /assets/ {
+    root /home/wladev/sites/maeh/public;
+    access_log off;
+    expires max;
+}
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS on;
+        fastcgi_read_timeout 300;
+    }
+
+    ssl_certificate /etc/letsencrypt/live/maeh.wladev.fr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/maeh.wladev.fr/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+server {
+    listen 80;
+    server_name maeh.wladev.fr;
+
+    if ($host = maeh.wladev.fr) {
+        return 301 https://$host$request_uri;
+    }
+
+    return 404;
+}

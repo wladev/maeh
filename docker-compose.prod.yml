@@ -1,0 +1,34 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: maeh_app
+    environment:
+      APP_ENV: prod
+      APP_DEBUG: 0
+      APP_SECRET: 4f3b7e91d9c5c7b6a2e8dcd031f9f9e1
+      DATABASE_URL: postgresql://wlad:secret@symfony_db:5432/maeh
+    volumes:
+      - ~/sites/maeh:/var/www         # Code source monté depuis ta machine
+      - symfony_var:/var/www/var      # var (cache/log) isolé pour éviter les conflits de permissions
+    ports:
+      - "9000:9000"
+    working_dir: /var/www
+    command: ./init.sh
+
+
+  symfony_db:
+    image: postgres:16-alpine
+    container_name: symfony_db
+    restart: always
+    environment:
+      POSTGRES_DB: maeh
+      POSTGRES_USER: wlad
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+  symfony_var:

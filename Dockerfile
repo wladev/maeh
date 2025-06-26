@@ -1,19 +1,22 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
-# Dépendances système
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    git unzip zip curl libpq-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo pdo_mysql
+    git unzip libicu-dev libonig-dev libpq-dev libzip-dev zip curl \
+    && docker-php-ext-install intl pdo pdo_pgsql zip opcache
 
-# Installe Composer
+# Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Déplace les sources
+# Set working directory
 WORKDIR /var/www
+
+# Copy existing application directory contents
 COPY . .
 
-# Installe les dépendances PHP
-RUN composer install
+# Permissions
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R 775 /var/www/var
 
-# Droits
-RUN chown -R www-data:www-data /var/www
+# (Optional tuning, mais tu peux la remettre si le fichier existe)
+# COPY docker/php/conf.d/app.ini /usr/local/etc/php/conf.d/app.ini

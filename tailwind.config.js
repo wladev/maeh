@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'marquee-left-to-right': 'leftToRight 8s linear infinite',
+        'marquee-left-to-right': 'leftToRight 15s linear infinite',
       },
       keyframes: {
         leftToRight: {

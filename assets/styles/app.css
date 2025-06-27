@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=LXGW+Marker+Gothic&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    box-sizing: border-box;
+    font-family: "LXGW Marker Gothic", sans-serif;
+}
 
 

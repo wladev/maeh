@@ -14,6 +14,8 @@ WORKDIR /var/www
 # Copy existing application directory contents
 COPY . .
 
+RUN rm Dockerfile && mv Dockerfile.prod Dockerfile
+
 # Permissions
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 /var/www/var

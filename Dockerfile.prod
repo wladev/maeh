@@ -24,6 +24,7 @@ RUN mkdir -p var/cache var/log var/cache/prod var/tailwind \
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
     && php bin/console tailwind:build
 
+RUN mkdir /var/www/var
 RUN chown -R www-data:www-data var/cache var/log var/tailwind var/cache/prod \
     && chmod -R 775 var/cache/prod
 

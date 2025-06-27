@@ -1,8 +1,8 @@
 {% if app.user %}
-<div class="mb-3 w-full text-yellow-800 flex justify-between">
+<div class="mb-3 w-full text-green-800 flex justify-between">
     <div class="ms-5">
         Connecté en tant que {{ app.user.firstname }} {% if app.user.roles == ["ROLE_USER"] %} <span
-            class="text-yellow-700">(Utilisateur)</span>, <a href="{{ path('app_logout') }}" class="me-5 underline">Se déconnecter</a>
+            class="text-green-700">(Utilisateur)</span>, <a href="{{ path('app_logout') }}" class="me-5 underline">Se déconnecter</a>
         {% endif %}
     </div>
     <div>
@@ -18,7 +18,7 @@
     <a href="/login">Se connecter</a>
 </div>
 {% endif %}
-<div class="header flex flex-col items-center justify-center bg-yellow-50 py-3 relative h-[40vh]">
+<div class="header flex flex-col items-center justify-center bg-green-50 py-3 relative h-[40vh]">
     <div class="w-full flex items-center justify-around">
         <div class="w-[20vw]">
             <a href="/">
@@ -26,31 +26,33 @@
             </a>
         </div>
         <div>
-            <p class="text-center text-yellow-700 text-6xl font-semibold leading-[1.5]">Mouvement pour l'Améloiration de l'Environnement Hospitalier</p>
+            <p class="text-center text-green-700 text-6xl font-semibold leading-[1.5]">Mouvement pour l'Améloiration de l'Environnement Hospitalier</p>
         </div>
     </div>
     {# <h1 class="text-center">MAEH</h1> #}
 </div>
-<div class="flex justify-center text-yellow-500 font-bold text-2xl bg-yellow-100 my-5 py-2 rounded-xl">
-    <p class="">L’association M.A.E.H. fête ses 50 ans en 2023</p>
+<div class="overflow-hidden relative text-green-500 font-bold text-2xl bg-green-100 my-5 py-2 rounded-xl h-12">
+  <p class="absolute whitespace-nowrap animate-marquee-left-to-right">
+    L’association M.A.E.H. fête ses 50 ans en 2023
+  </p>
 </div>
-<div class="links flex justify-around bg-yellow-200 py-3 mb-5 rounded-xl ">
+<div class="links flex justify-around bg-green-200 py-3 mb-5 rounded-xl ">
     <a href="/"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Accueil</a>
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Accueil</a>
     <a href="#"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Vie
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Vie
         de l'association</a>
     <a href="#"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Qui
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Qui
         sommes nous?</a>
     <a href="#"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Réalisations</a>
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Réalisations</a>
     <a href="#"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Nos
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Nos
         boutiques</a>
     <a href="#"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Contact</a>
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Contact</a>
     <a href="#"
-        class="text-yellow-700 hover:bg-yellow-700 hover:text-yellow-300 py-3 px-2 rounded-2xl font-semibold transition duration-500">Faire
+        class="text-green-700 hover:bg-green-700 hover:text-green-100 py-3 px-2 rounded-2xl font-semibold transition duration-500 ease-out">Faire
         un don</a>
 </div>

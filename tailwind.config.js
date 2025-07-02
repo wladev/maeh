@@ -5,6 +5,10 @@ module.exports = {
     "./templates/**/*.html.twig",
     './public/index.html'
   ],
+  safelist: [
+    'hover:underline',
+    'hover:scale-110'
+  ],
   theme: {
     extend: {
       animation: {
